@@ -5,8 +5,14 @@ app = Flask(__name__)
 CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 @app.route('/batik/identify', methods=['POST'])
+@cross_origin()
 def batikIdentify():
-    return "Success"
+    # -- uploaded file setup
+    file = request.files['fileInput']
+    file_path = "./upload/" + file.filename
+    file.save(file_path)
+
+    return file_path
 
 @app.route('/batik/list', methods=['GET'])
 @cross_origin()
