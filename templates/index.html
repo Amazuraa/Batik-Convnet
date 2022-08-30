@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     
+     <!-- Tailwind -->
+     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+     <!-- <link href="src/styles.css" rel="stylesheet"> -->
+     
+     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400&display=swap" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+     <!-- Axios & Jquery -->
+     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+     <style>
+          body { font-family: 'Source Sans Pro', sans-serif; }
+     </style>
+
+     <title>Batik Identification</title>
+</head>
+<body class="bg-gray-200">
+     <div class="md:flex flex-col md:flex-row md:min-h-screen w-full">
+          <!-- Sidebar -->
+          <div class="flex flex-col w-full md:w-64 text-gray-700 bg-white dark-mode:text-gray-200 dark-mode:bg-gray-800 flex-shrink-0">
+            <div class="flex-shrink-0 px-8 py-4 flex flex-row items-center justify-between">
+               <p class="text-md font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline">
+                   Batik Identification
+               </p>
+            </div>
+            <hr class="mb-5">
+            <nav class="flex-grow md:block px-4 pb-4 md:pb-0 md:overflow-y-auto">
+               <a class="flex block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-gray-100 rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                         <path class="fill-current text-gray-600 group-hover:text-cyan-600" d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z" />
+                         <path class="fill-current text-gray-300 group-hover:text-cyan-300" d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z" />
+                    </svg>
+                    <span class="ml-4">Model Prediction</span>
+               </a>
+               <a class="flex block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="/batik">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                         <path class="fill-current text-gray-600 group-hover:text-cyan-600" fill-rule="evenodd" d="M2 5a2 2 0 012-2h8a2 2 0 012 2v10a2 2 0 002 2H4a2 2 0 01-2-2V5zm3 1h6v4H5V6zm6 6H5v2h6v-2z" clip-rule="evenodd" />
+                         <path class="fill-current text-gray-300 group-hover:text-cyan-300" d="M15 7h1a2 2 0 012 2v5.5a1.5 1.5 0 01-3 0V7z" />
+                    </svg>
+                    <span class="ml-4">Motif Batik</span>
+               </a>
+            </nav>
+          </div>
+     
+          <!-- Content -->
+          <main class="min-h-screen w-full">
+               <div class="p-6 grid grid-cols-2 gap-5 top-1/2 left-1/2 mx-auto w-11/12 text-center">
+                    <div>
+                         <header class="mb-3 text-2xl font-bold">Upload Motif Batik</header>
+                         
+                         <div class="w-full rounded-2xl bg-gray-50 h-56 border-2 border-dashed border-blue-300 rounded appearance-none focus:outline-none focus:shadow-outline">
+                              <div class="grid content-center h-full relative">
+                                   
+                                   <span class="material-icons text-blue-400 z-10" style="font-size: 100px;">
+                                        <button class="w-auto" id="btn-upload">&#xe43e;</button>
+                                   </span>
+                                   <img class="hidden absolute object-cover h-full w-full rounded-2xl"
+                                        id="output"/>
+                              </div>
+                         </div>
+                         
+                         <!-- <header class="text-xl font-bold">Select Model</header> -->
+                         <ul class="items-center w-full mt-4 text-sm font-medium text-gray-900 bg-white rounded-2xl border border-gray-300 sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                              <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                                   <div class="flex items-center pl-6">
+                                        <input checked id="radio-sobel" type="radio" value="sobel" name="model-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                                        <label for="radio-sobel" class="py-4 ml-4 w-full text-left font-medium text-gray-900 dark:text-gray-300">CNN - Sobel Edge</label>
+                                   </div>
+                              </li>
+                              <li class="w-full border-b border-gray-200 sm:border-b-0 sm:dark:border-gray-600">
+                                   <div class="flex items-center pl-6">
+                                        <input id="radio-canny" type="radio" value="canny" name="model-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                                        <label for="radio-canny" class="py-4 ml-4 w-full text-left font-medium text-gray-900 dark:text-gray-300">CNN - Canny Edge</label>
+                                   </div>
+                              </li>
+                         </ul>
+
+                         <!-- <hr class="border-gray-300 border-dashed"> -->
+
+                         <div class="hidden">
+                              <input
+                              type="file"
+                              placeholder="Upload Image"
+                              accept="image/png, image/gif, image/jpeg"
+                              class="my-3 w-full border-none bg-transparent outline-none focus:outline-none"
+                              id="ipt-file"
+                              />
+                         </div>
+                         <div class="grid grid-cols-2 gap-2 top-1/2 text-center mt-4">
+                              <button
+                                   class="w-full rounded-2xl border-b-4 border-b-blue-600 bg-blue-500 py-3 font-bold text-white hover:bg-blue-400 active:translate-y-[0.125rem]"
+                                   id="btn-edge"
+                              >
+                                   IDENTIFY
+                              </button>
+                              <button
+                                   class="w-full rounded-2xl border-b-4 border-b-blue-600 bg-orange-500 py-3 font-bold text-white hover:bg-orange-400 active:translate-y-[0.125rem]"
+                                   id="btn-clear"
+                              >
+                                   CLEAR
+                              </button>
+                         </div>
+                    </div>
+                    <div>
+                         <table class="min-w-full leading-normal mt-12" id="tbl-prediction">
+                              <thead>
+                                   <tr>
+                                        <th class="px-5 py-3 rounded-tl-2xl border-b-2 border-gray-200 bg-gray-100 text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                             Motif
+                                        </th>
+                                        <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                             Model
+                                        </th>
+                                        <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                             Prediction
+                                        </th>
+                                        <th class="px-5 py-3 rounded-tr-2xl border-b-2 border-gray-200 bg-gray-100 text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                             Accuracy
+                                        </th>
+                                   </tr>
+                              </thead>
+                              <tbody>
+                                   <tr>
+                                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                             -
+                                        </td>
+                                        <td class="py-5 border-b border-gray-200 bg-white text-sm">
+                                             -
+                                        </td>
+                                        <td class="py-5 border-b border-gray-200 bg-white text-sm">
+                                             -
+                                        </td>
+                                        <td class="py-5 border-b border-gray-200 bg-white text-sm">
+                                             <span class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
+                                             <span aria-hidden class="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
+                                                  <span class="relative">-</span>
+                                             </span>
+                                        </td>
+                                   </tr>
+                              </tbody>
+                         </table>
+                    </div>
+               </div>
+          </main>
+     </div>
+</body>
+</html>
+
+<script>
+$(document).ready(function(){
+
+     var start = false;
+
+     $('#btn-upload').click(function(){
+          $('#ipt-file').click();          
+     });
+
+     $("#ipt-file").change(function(){
+          let file = $("#ipt-file").prop('files')[0];
+          $("#output").attr("src", URL.createObjectURL(file));
+          $("#output").toggleClass("hidden");
+
+          $("#btn-upload").hide();
+          console.log(URL.createObjectURL(file));
+     });
+
+     $('#btn-edge').click(function(){
+          let file = $("#ipt-file").prop('files')[0];
+          let model = $('input[name="model-radio"]:checked').val();
+          let data = new FormData(); 
+
+          data.append("fileInput", file);
+          data.append("modelInput", model);
+
+          axios.post('/upload', data)
+               .then(res => {
+                    console.log(res.data);
+
+                    if (!start) {
+                         $("#tbl-prediction tbody").empty();
+                         start = true;
+                    }
+
+                    var content = "<tr>" +
+                                        "<td class='px-5 py-5 border-b border-gray-200 bg-white text-sm'>" +
+                                             "<div class='flex justify-center items-center'>" +
+                                                  "<div class='w-20 h-16'>" +
+                                                       "<img class='w-full h-full rounded-2xl object-cover' src='"+ res.data.img +"'/>" +
+                                                  "</div>" +
+                                             "</div>" +
+                                        "</td>" +
+                                        "<td class='py-5 border-b border-gray-200 bg-white text-sm'>" +
+                                             res.data.model +
+                                        "</td>" +
+                                        "<td class='py-5 border-b border-gray-200 bg-white text-sm'>" +
+                                             res.data.class +
+                                        "</td>" +
+                                        "<td class='py-5 border-b border-gray-200 bg-white text-sm'>" +
+                                             "<span class='relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight'>" +
+                                             "<span aria-hidden class='absolute inset-0 bg-green-200 opacity-50 rounded-full'></span>" +
+                                                  "<span class='relative'>" +
+                                                       res.data.acc + "%" +
+                                                  "</span>" +
+                                             "</span>" +
+                                        "</td>" +
+                                   "</tr>";
+
+                    $("#tbl-prediction tbody").append(content);
+               })
+               .catch(err => {
+                    console.log(err);
+               })
+     });
+
+     $("#btn-clear").click(function(){
+          $("#output").attr("src", "");
+          $("#output").toggleClass("hidden");
+
+          $("#btn-upload").show();
+     })
+});
+</script>

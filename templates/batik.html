@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     
+     <!-- Tailwind -->
+     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400&display=swap" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+     <style>
+          body { font-family: 'Source Sans Pro', sans-serif; }
+     </style>
+
+     <title>Batik Identification</title>
+</head>
+<body class="bg-gray-200">
+     <div class="md:flex flex-col md:flex-row md:min-h-screen w-full">
+          <!-- Sidebar -->
+          <div class="flex flex-col w-full md:w-64 text-gray-700 bg-white dark-mode:text-gray-200 dark-mode:bg-gray-800 flex-shrink-0">
+            <div class="flex-shrink-0 px-8 py-4 flex flex-row items-center justify-between">
+               <p class="text-md font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline">
+                   Batik Identification
+               </p>
+            </div>
+            <hr class="mb-5">
+            <nav class="flex-grow md:block px-4 pb-4 md:pb-0 md:overflow-y-auto">
+               <a class="flex block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="/">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                         <path class="fill-current text-gray-600 group-hover:text-cyan-600" d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z" />
+                         <path class="fill-current text-gray-300 group-hover:text-cyan-300" d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z" />
+                    </svg>
+                    <span class="ml-4">Model Prediction</span>
+               </a>
+               <a class="flex block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-gray-100 rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="/batik">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                         <path class="fill-current text-gray-600 group-hover:text-cyan-600" fill-rule="evenodd" d="M2 5a2 2 0 012-2h8a2 2 0 012 2v10a2 2 0 002 2H4a2 2 0 01-2-2V5zm3 1h6v4H5V6zm6 6H5v2h6v-2z" clip-rule="evenodd" />
+                         <path class="fill-current text-gray-300 group-hover:text-cyan-300" d="M15 7h1a2 2 0 012 2v5.5a1.5 1.5 0 01-3 0V7z" />
+                    </svg>
+                    <span class="ml-4">Motif Batik</span>
+               </a>
+            </nav>
+          </div>
+     
+          <!-- Content -->
+          <main class="min-h-screen w-full">
+               <div class="p-6 grid grid-cols-4 gap-5 top-1/2 left-1/2 mx-auto w-11/12 text-center">
+                    <div>
+                         <header class="mb-3 text-xl font-bold">Kawung</header>
+                         
+                         <div class="w-full rounded-2xl bg-gray-50 h-56 border-2 border-dashed border-gray-400 rounded appearance-none focus:outline-none focus:shadow-outline">
+                              <div class="grid content-center h-full relative">
+                                   <img class="absolute object-cover h-full w-full rounded-2xl" src="./upload/sample/kawung.jpg"/>
+                              </div>
+                         </div>
+                         
+                         <!-- <header class="text-xl font-bold">Select Model</header> -->
+                         <ul class="items-center w-full mt-4 text-sm font-medium text-gray-900 bg-white rounded-2xl border border-gray-300 sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                              <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                                   <div class="flex items-center">
+                                        <p class="py-4 px-4 w-full text-left font-medium text-gray-900 dark:text-gray-300">
+                                             Merupakan salah satu motif batik tua yang berasal dari <br>Pulau Jawa.<br><br>
+                                             Motif batik kawung berbentuk seperti irisan buah kawung yang dikenal juga dengan buah kolang-kaling atau atau buah aren. <br><br>
+                                             Jika dilihat motifnya akan terlihat bentuk simetris dengan bulatan-bulatan yang tersusun secara geometris.
+                                        </p>
+                                   </div>
+                              </li>
+                         </ul>
+                    </div>
+                    <div>
+                         <header class="mb-3 text-xl font-bold">Megamendung</header>
+                         
+                         <div class="w-full rounded-2xl bg-gray-50 h-56 border-2 border-dashed border-gray-400 rounded appearance-none focus:outline-none focus:shadow-outline">
+                              <div class="grid content-center h-full relative">
+                                   <img class="absolute object-cover h-full w-full rounded-2xl" src="./upload/sample/megamendung.jpg"/>
+                              </div>
+                         </div>
+                         
+                         <!-- <header class="text-xl font-bold">Select Model</header> -->
+                         <ul class="items-center w-full mt-4 text-sm font-medium text-gray-900 bg-white rounded-2xl border border-gray-300 sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                              <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                                   <div class="flex items-center">
+                                        <p class="py-4 px-4 w-full text-left font-medium text-gray-900 dark:text-gray-300">
+                                             Merupakan karya seni batik yang menjadi ikon batik daerah Cirebon.<br><br>
+                                             Motif Megamendung melam-<br>bangkan awan pembawa hujan sebagai lambang kesuburan dan pemberi kehidupan. <br><br>
+                                             Motif batik ini memiliki sejarah yang berkaitan dengan kedatangan bangsa Tiongkok di Cirebon
+                                        </p>
+                                   </div>
+                              </li>
+                         </ul>
+                    </div>
+                    <div>
+                         <header class="mb-3 text-xl font-bold">Merak Ngibing</header>
+                         
+                         <div class="w-full rounded-2xl bg-gray-50 h-56 border-2 border-dashed border-gray-400 rounded appearance-none focus:outline-none focus:shadow-outline">
+                              <div class="grid content-center h-full relative">
+                                   <img class="absolute object-cover h-full w-full rounded-2xl" src="./upload/sample/merak_ngibing.jpg"/>
+                              </div>
+                         </div>
+                         
+                         <!-- <header class="text-xl font-bold">Select Model</header> -->
+                         <ul class="items-center w-full mt-4 text-sm font-medium text-gray-900 bg-white rounded-2xl border border-gray-300 sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                              <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                                   <div class="flex items-center">
+                                        <p class="py-4 px-4 w-full text-left font-medium text-gray-900 dark:text-gray-300">
+                                             Motif Merak Ngibing merupakan motif orisinal Jawa Barat, khususnya Garut dan Tasikmalaya.<br><br>
+                                             Menggambarkan susunan ben-<br>tuk burung merak dengan ekor yang menjuntai, dan bentuk parang gondosuli dengan ukuran kecil, yang disusun ber-<br>dampingan dengan pengulang-<br>an arah diagonal.
+                                        </p>
+                                   </div>
+                              </li>
+                         </ul>
+                    </div>
+                    <div>
+                         <header class="mb-3 text-xl font-bold">Parang</header>
+                         
+                         <div class="w-full rounded-2xl bg-gray-50 h-56 border-2 border-dashed border-gray-400 rounded appearance-none focus:outline-none focus:shadow-outline">
+                              <div class="grid content-center h-full relative">
+                                   <img class="absolute object-cover h-full w-full rounded-2xl" src="./upload/sample/parang.jpg"/>
+                              </div>
+                         </div>
+                         
+                         <!-- <header class="text-xl font-bold">Select Model</header> -->
+                         <ul class="items-center w-full mt-4 text-sm font-medium text-gray-900 bg-white rounded-2xl border border-gray-300 sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                              <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                                   <div class="flex items-center">
+                                        <p class="py-4 px-4 w-full text-left font-medium text-gray-900 dark:text-gray-300">
+                                             Motif Batik Parang sudah ada sejak zaman keraton Mataram Kartasura (Solo).<br><br>
+                                             Batik Parang berasal dari kata pereng  yang berarti lereng atau tebing. <br><br>
+                                             Motif batik ini merupakan simbol dari ombak laut karena  memiliki pola geometris membentuk huruf S yang saling terhubung dan tidak terputus membentuk diagonal.
+                                        </p>
+                                   </div>
+                              </li>
+                         </ul>
+                    </div>
+                    
+               </div>
+          </main>
+     </div>
+</body>
+</html>
