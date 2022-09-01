@@ -18,3 +18,7 @@
 ```bash
 - Models trained for only 4 batik motifs (Kawung, Megamendung, Merak Ngibing, Parang)
 ```
+
+#### &nbsp; Core Concept : 
+
+![process](https://user-images.githubusercontent.com/37819857/187832234-e2c2aaac-316d-41e6-b47b-323f07b7a345.png)
